@@ -24,6 +24,7 @@ declare global {
 
   export type ResultStackType = {
     ResultScreen: undefined;
+    WriteScreen: undefined;
   };
 
   export type SettingStackType = {
