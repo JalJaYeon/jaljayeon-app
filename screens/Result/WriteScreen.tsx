@@ -10,6 +10,9 @@ import {MEDIUM} from 'utils/font';
 import DropDown from 'components/Dropdown';
 import BooleanButton from 'components/BooleanButton';
 import NumericButton from 'components/NumericButton';
+import api from 'api';
+import {getToken} from 'api/jwt';
+import {makeHHMM} from 'utils/time';
 
 const timeStartItems = new Array(24).fill(0).map((_, index) => ({
   label: `${index}시`,
@@ -29,13 +32,32 @@ const WriteScreen = () => {
   const [usedPhone30MinsBeforeSleep, setUsedPhone30MinsBeforeSleep] =
     useState<boolean>(false);
   const [isEnoughSleep, setIsEnoughSleep] = useState<boolean>(false);
+  const [hour, setHour] = useState<string>('0');
+  const [minute, setMinute] = useState<string>('0');
+  const [tirednessLevel, setTirednessLevel] = useState(1);
 
-  const onWrite = () => {
-    // api call
-    // then
-    // goBack
+  const onWrite = async () => {
+    try {
+      const token = await getToken();
+      const response = await api.post(
+        '/sleep',
+        {
+          slept_time: makeHHMM(hour, minute),
+          is_enough_sleep: isEnoughSleep,
+          used_phone_30_mins_before_sleep: usedPhone30MinsBeforeSleep,
+          tiredness_level: tirednessLevel,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
-    navigation.goBack();
+      if (response.status === 201) {
+        navigation.goBack();
+      }
+    } catch (error) {}
   };
 
   return (
@@ -51,8 +73,12 @@ const WriteScreen = () => {
         ref={awareRef}>
         <Text style={styles.title}>오늘 몇 시간 주무셨나요?</Text>
         <View style={styles.inputWrapper}>
-          <DropDown items={timeStartItems} />
-          <DropDown items={minuteStartItems} />
+          <DropDown items={timeStartItems} value={hour} setValue={setHour} />
+          <DropDown
+            items={minuteStartItems}
+            value={minute}
+            setValue={setMinute}
+          />
         </View>
         <Text style={styles.title}>취침 30분 전에 휴대폰을 사용하시나요?</Text>
         <View style={styles.inputWrapper}>
@@ -86,11 +112,18 @@ const WriteScreen = () => {
         </View>
         <Text style={styles.title}>오늘 느낀 피곤함은 어느정도인가요?</Text>
         <View style={styles.inputWrapper}>
-          {new Array(5).fill(0).map((_, index) => (
-            <NumericButton label={index + 1} value={1} />
-          ))}
+          {new Array(5).fill(0).map((_, index) => {
+            const onPress = () => setTirednessLevel(index + 1);
+            return (
+              <NumericButton
+                label={index + 1}
+                value={tirednessLevel}
+                onPress={onPress}
+              />
+            );
+          })}
         </View>
-        <Button label="시작" top={hp('6.6%')} onPress={onWrite} />
+        <Button label="작성하기" top={hp('6.6%')} onPress={onWrite} />
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
