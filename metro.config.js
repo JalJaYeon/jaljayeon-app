@@ -22,6 +22,7 @@ module.exports = (async () => {
         screens: path.resolve(__dirname, 'screens'),
         components: path.resolve(__dirname, 'components'),
         api: path.resolve(__dirname, 'api'),
+        store: path.resolve(__dirname, 'store'),
       },
       assetExts: assetExts.filter(ext => ext !== 'svg'),
       sourceExts: [...sourceExts, 'svg'],
