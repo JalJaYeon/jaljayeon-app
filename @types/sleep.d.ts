@@ -2,7 +2,7 @@ export {};
 
 declare global {
   export interface ISleepData {
-    id: 0;
+    id: number;
     owner: string;
     slept_date: string;
     slept_time: string;
