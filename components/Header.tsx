@@ -17,7 +17,15 @@ const Header: React.FC<IProps> = ({onPress, title}: IProps) => {
           <ArrowLeft style={styles.icon} />
         </TouchableOpacity>
       )}
-      <Text style={styles.title}>{title}</Text>
+      <Text
+        style={[
+          styles.title,
+          {
+            marginTop: onPress ? 0 : hp('2.9%'),
+          },
+        ]}>
+        {title}
+      </Text>
     </View>
   );
 };
