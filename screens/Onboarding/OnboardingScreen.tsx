@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, StyleSheet, Image, Text} from 'react-native';
+import {useSelector} from 'react-redux';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import {BLACK, GRAY, WHITE} from 'utils/color';
 import {BOLD, MEDIUM} from 'utils/font';
 import {fs, hp, wp} from 'utils/size';
 import Button from 'components/Button';
+import {RootState} from 'store/reducers';
 
 const OnboardingScreen = () => {
   const navigation = useNavigation();
   const [imageHeight, setImageHeight] = useState(0);
+  const {user} = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
     const imageSource = require('assets/images/onboarding.png');
@@ -37,7 +40,7 @@ const OnboardingScreen = () => {
           },
         ]}
       />
-      <Text style={styles.title}>환영합니다 김고은님</Text>
+      <Text style={styles.title}>환영합니다 {user?.name}님</Text>
       <Text style={styles.description}>
         잘자연과 함께 건강한{'\n'}수면생활을 시작해봐요!
       </Text>
