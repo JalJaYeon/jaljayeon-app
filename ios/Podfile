@@ -24,8 +24,8 @@ target 'Jaljayeon' do
   use_flipper!()
 
   post_install do |installer|
-    installer.post_install.build_configurations.each do |config|
-      config.build_settings['EXCLUDED_ARCHS[sdk=iphoneosimulator*]'] = 'arm64'
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
     end
   end
 end
