@@ -18,7 +18,7 @@ const SignInScreen = () => {
   const navigation = useNavigation();
 
   const onSignIn = () => {
-    navigation.navigate('MainTab');
+    navigation.navigate('OnboardingScreen');
   };
 
   return (
