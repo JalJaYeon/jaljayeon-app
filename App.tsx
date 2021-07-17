@@ -6,17 +6,29 @@
  */
 
 import React, {useEffect} from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TabBar from 'components/TabBar';
 import {SignInScreen, SignUpScreen} from 'screens/Auth';
 import {OnboardingScreen} from 'screens/Onboarding';
-import {HomeScreen} from 'screens/Home';
+import {HomeScreen, MainResultScreen} from 'screens/Home';
 import {ResultScreen, WriteScreen} from 'screens/Result';
+import {
+  ProfileScreen,
+  SettingScreen,
+  NoticeScreen,
+  NoticeDetailScreen,
+  ReportScreen,
+} from 'screens/Setting';
+
+import configureStore from 'store';
+
+const store = configureStore();
 
 const RootStack = createStackNavigator<RootStackType>();
 const AuthStack = createStackNavigator<AuthStackType>();
@@ -35,6 +47,7 @@ const AuthNavigator = () => (
 const HomeNavigator = () => (
   <HomeStack.Navigator headerMode="none">
     <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
+    <HomeStack.Screen name="MainResultScreen" component={MainResultScreen} />
   </HomeStack.Navigator>
 );
 
@@ -47,10 +60,14 @@ const ResultNavigator = () => (
 
 const SettingNavigator = () => (
   <SettingStack.Navigator headerMode="none">
+    <SettingStack.Screen name="SettingScreen" component={SettingScreen} />
+    <SettingStack.Screen name="ProfileScreen" component={ProfileScreen} />
+    <SettingStack.Screen name="NoticeScreen" component={NoticeScreen} />
     <SettingStack.Screen
-      name="SettingScreen"
-      component={() => <SafeAreaView />}
+      name="NoticeDetailScreen"
+      component={NoticeDetailScreen}
     />
+    <SettingStack.Screen name="ReportScreen" component={ReportScreen} />
   </SettingStack.Navigator>
 );
 
@@ -70,19 +87,21 @@ const App = () => {
   });
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle="dark-content" />
-      <NavigationContainer>
-        <RootStack.Navigator initialRouteName="AuthStack" headerMode="none">
-          <RootStack.Screen name="AuthStack" component={AuthNavigator} />
-          <RootStack.Screen
-            name="OnboardingScreen"
-            component={OnboardingScreen}
-          />
-          <RootStack.Screen name="MainTab" component={MainNavigator} />
-        </RootStack.Navigator>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <StatusBar barStyle="dark-content" />
+        <NavigationContainer>
+          <RootStack.Navigator initialRouteName="AuthStack" headerMode="none">
+            <RootStack.Screen name="AuthStack" component={AuthNavigator} />
+            <RootStack.Screen
+              name="OnboardingScreen"
+              component={OnboardingScreen}
+            />
+            <RootStack.Screen name="MainTab" component={MainNavigator} />
+          </RootStack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </Provider>
   );
 };
 
