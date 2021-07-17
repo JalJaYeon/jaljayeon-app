@@ -1,19 +1,33 @@
 import React from 'react';
-import {StyleSheet, TextInput, TextInputProps} from 'react-native';
-import {BLACK, PLACEHOLDER, WHITE} from 'utils/color';
+import {
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  findNodeHandle,
+} from 'react-native';
+import {BLACK, LIGHTGRAY, WHITE} from 'utils/color';
 import {MEDIUM} from 'utils/font';
 import {fs, hp, wp} from 'utils/size';
 
 interface IProps extends TextInputProps {
   bottom?: number;
   top?: number;
+  scrollToInput?: (node: React.ReactNode) => void;
 }
 
-const Input: React.FC<IProps> = ({bottom = 0, top = 0, ...props}: IProps) => {
+const Input: React.FC<IProps> = ({
+  bottom = 0,
+  top = 0,
+  scrollToInput = () => {},
+  ...props
+}: IProps) => {
   return (
     <TextInput
       style={[styles.container, {marginTop: top, marginBottom: bottom}]}
-      placeholderTextColor={PLACEHOLDER}
+      placeholderTextColor={LIGHTGRAY}
+      onFocus={event => {
+        scrollToInput(findNodeHandle(event.target));
+      }}
       {...props}
     />
   );
