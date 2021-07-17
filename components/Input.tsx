@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput, TextInputProps} from 'react-native';
-import {PLACEHOLDER, WHITE} from 'utils/color';
+import {BLACK, PLACEHOLDER, WHITE} from 'utils/color';
 import {MEDIUM} from 'utils/font';
 import {fs, hp, wp} from 'utils/size';
 
@@ -28,14 +28,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp('5.5%'),
     fontFamily: MEDIUM,
     fontSize: fs(14),
-    shadowColor: '#000',
+    shadowColor: BLACK,
     shadowOffset: {
       width: 0,
       height: 1,
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
   },
 });
