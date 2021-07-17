@@ -20,6 +20,9 @@ declare global {
 
   export type HomeStackType = {
     HomeScreen: undefined;
+    MainResultScreen: {
+      id: number;
+    };
   };
 
   export type ResultStackType = {
@@ -29,5 +32,9 @@ declare global {
 
   export type SettingStackType = {
     SettingScreen: undefined;
+    ProfileScreen: undefined;
+    NoticeScreen: undefined;
+    NoticeDetailScreen: undefined;
+    ReportScreen: undefined;
   };
 }
