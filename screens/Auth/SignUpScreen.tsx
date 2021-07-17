@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {MutableRefObject, useRef} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -10,41 +10,64 @@ import {MEDIUM} from 'utils/font';
 import DropDown from 'components/Dropdown';
 import Button from 'components/Button';
 
+const timeStartItems = new Array(24).fill(0).map((_, index) => ({
+  label: `${index}시`,
+  value: index,
+  key: `time${index}`,
+}));
+
+const minuteStartItems = new Array(60).fill(0).map((_, index) => ({
+  label: `${index}분`,
+  value: index,
+  key: `date${index}`,
+}));
+
+const hourItems = new Array(12).fill(0).map((_, index) => ({
+  label: `${index}시간`,
+  value: index,
+  key: `hour${index}`,
+}));
+
+const minuteItems = new Array(60).fill(0).map((_, index) => ({
+  label: `${index}분`,
+  value: index,
+  key: `minute${index}`,
+}));
+
 const SignUpScreen = () => {
   const navigate = useNavigation();
+  const awareRef = useRef() as MutableRefObject<KeyboardAwareScrollView>;
 
-  const timeStartItems = new Array(24).fill(0).map((_, index) => ({
-    label: `${index}시`,
-    value: index,
-    key: `time${index}`,
-  }));
-
-  const minuteStartItems = new Array(60).fill(0).map((_, index) => ({
-    label: `${index}분`,
-    value: index,
-    key: `date${index}`,
-  }));
-
-  const hourItems = new Array(12).fill(0).map((_, index) => ({
-    label: `${index}시간`,
-    value: index,
-    key: `hour${index}`,
-  }));
-
-  const minuteItems = new Array(60).fill(0).map((_, index) => ({
-    label: `${index}분`,
-    value: index,
-    key: `minute${index}`,
-  }));
+  const _scrollToInput = (reactNode: React.ReactNode) => {
+    awareRef.current.scrollToFocusedInput(reactNode as Object);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAwareScrollView contentContainerStyle={styles.container}>
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.container}
+        ref={awareRef}>
         <Header onPress={() => navigate.goBack()} title="회원가입" />
-        <Input top={hp('2.8%')} placeholder="이름" />
-        <Input top={hp('2.4%')} placeholder="아이디" />
-        <Input top={hp('2.4%')} placeholder="비밀번호" />
-        <Input top={hp('2.4%')} placeholder="몸무게 (단위: KG)" />
+        <Input
+          top={hp('2.8%')}
+          placeholder="이름"
+          scrollToInput={_scrollToInput}
+        />
+        <Input
+          top={hp('2.4%')}
+          placeholder="아이디"
+          scrollToInput={_scrollToInput}
+        />
+        <Input
+          top={hp('2.4%')}
+          placeholder="비밀번호"
+          scrollToInput={_scrollToInput}
+        />
+        <Input
+          top={hp('2.4%')}
+          placeholder="몸무게 (단위: KG)"
+          scrollToInput={_scrollToInput}
+        />
         <Text style={styles.title}>평소 취침 시작 시각</Text>
         <View style={styles.dropdownWrapper}>
           <DropDown items={timeStartItems} />
