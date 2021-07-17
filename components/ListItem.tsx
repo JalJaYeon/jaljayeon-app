@@ -1,22 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {fs, hp, wp} from 'utils/size';
 import {BLACK, BLUE, GRAY, WHITE} from 'utils/color';
 import Icon from 'assets/images/arrow-right.svg';
 import {MEDIUM} from 'utils/font';
+import {getKoreanDate, getKoreanHHMM} from 'utils/time';
 
 interface IProps {
+  sleep: ISleepData;
   onPress?: () => void;
   top?: number;
   bottom?: number;
 }
 
-const ListItem = ({onPress = () => {}, top = 0, bottom = 0}: IProps) => {
+const ListItem = ({sleep, onPress = () => {}, top = 0, bottom = 0}: IProps) => {
+  const [sleepDate] = useState<Date>(new Date(sleep.slept_date));
+
   return (
     <View style={[styles.container, {marginTop: top, marginBottom: bottom}]}>
       <View style={styles.infoWrapper}>
-        <Text style={styles.title}>2020년 7월 16일 (금)</Text>
-        <Text>4시간 40분 / 5점</Text>
+        <Text style={styles.title}>{getKoreanDate(`${sleepDate}`)}</Text>
+        <Text>
+          수면 시간: {getKoreanHHMM(sleep.slept_time)} / 피곤:{' '}
+          {sleep.tiredness_level}
+        </Text>
       </View>
       <TouchableOpacity onPress={onPress}>
         <Icon style={styles.icon} />
