@@ -1,21 +1,46 @@
 import {useNavigation} from '@react-navigation/native';
+import api from 'api';
+import {getToken} from 'api/jwt';
 import Header from 'components/Header';
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useSelector} from 'react-redux';
 import {BLACK, BLUE, LIGHTGRAY, WHITE} from 'utils/color';
 import {MEDIUM} from 'utils/font';
 import {fs, hp, wp} from 'utils/size';
+import {getKoreanHHMM} from 'utils/time';
+import {RootState} from 'store/reducers';
 
 const ResultScreen = () => {
   const navigation = useNavigation();
-  const [info, setInfo] = useState<ISleepData>({});
+  const {user} = useSelector((state: RootState) => state.user);
+  const [info, setInfo] = useState<ISleepData>();
 
   useEffect(() => {
-    // api call
-    //then
-    // setInfo(response.data)
-  });
+    const unsubscribe = navigation.addListener('focus', () => {
+      getInfo();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
+  const getInfo = async () => {
+    try {
+      const token = await getToken();
+      const response = await api.get('/sleep/today', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.status === 200) {
+        setInfo(response.data);
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
 
   const onWrite = () => {
     navigation.navigate('WriteScreen');
@@ -35,26 +60,32 @@ const ResultScreen = () => {
             </View>
             <View style={styles.divider} />
             <View style={styles.infoInnerWrapper}>
-              <Text style={styles.infoValue}>아니요</Text>
-              <Text style={styles.infoValue}>6시간 30분</Text>
-              <Text style={styles.infoValue}>네</Text>
-              <Text style={styles.infoValue}>3</Text>
+              <Text style={styles.infoValue}>
+                {info?.is_enough_sleep ? '네' : '아니요'}
+              </Text>
+              <Text style={styles.infoValue}>
+                {getKoreanHHMM(info?.slept_time as string)}
+              </Text>
+              <Text style={styles.infoValue}>
+                {info?.used_phone_30_mins_before_sleep ? '네' : '아니오'}
+              </Text>
+              <Text style={styles.infoValue}>{info?.tiredness_level}</Text>
             </View>
           </View>
 
           <View style={styles.aiAssistedWrapper}>
             <Text style={styles.aiAssistedTitle}>
-              좋은 수면을 하지 못하셨네요
+              {info.tiredness_level > 4
+                ? '좋은 수면을 하지 못하셨네요'
+                : '좋은 수면을 하셨네요'}
             </Text>
-            <Text style={styles.aiAssistedContent}>
-              - 수면 시간을 늘리세요{'\n'}- 취침 전 휴대폰 사용은 좋지 않아요
-            </Text>
+            <Text style={styles.aiAssistedContent}>{info.ai_advice}</Text>
           </View>
         </>
       ) : (
         <View style={styles.notCompleted}>
           <Text style={styles.notCompletedText}>
-            김고은님의 오늘 수면 결과가{'\n'}
+            {user?.name}님의 오늘 수면 결과가{'\n'}
             아직 작성되지 않았습니다.
           </Text>
           <TouchableOpacity style={styles.notCompletedButton} onPress={onWrite}>
