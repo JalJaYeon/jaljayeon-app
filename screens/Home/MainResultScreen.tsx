@@ -69,7 +69,7 @@ const MainResultScreen = () => {
 
       <View style={styles.aiAssistedWrapper}>
         <Text style={styles.aiAssistedTitle}>
-          {info?.tiredness_level > 4
+          {info?.tiredness_level > 3
             ? '좋은 수면을 하지 못하셨네요'
             : '좋은 수면을 하셨네요'}
         </Text>
