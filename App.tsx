@@ -5,14 +5,15 @@
  * @format
  */
 
-import React, {useEffect} from 'react';
-import {StatusBar} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Alert, StatusBar} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import OneSignal from 'react-native-onesignal';
 import TabBar from 'components/TabBar';
 import {SignInScreen, SignUpScreen} from 'screens/Auth';
 import {OnboardingScreen} from 'screens/Onboarding';
@@ -82,8 +83,58 @@ const MainNavigator = () => (
 );
 
 const App = () => {
+  const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
   useEffect(() => {
     SplashScreen.hide();
+  });
+
+  useEffect(() => {
+    const oneSignalInit = async () => {
+      /* O N E S I G N A L   S E T U P */
+      OneSignal.setLogLevel(6, 0);
+      OneSignal.setAppId('3e212527-376f-4f5d-a118-ca28736407db');
+
+      OneSignal.promptForPushNotificationsWithUserResponse(response => {
+        console.log('Prompt response:', response);
+      });
+      OneSignal.setNotificationWillShowInForegroundHandler(
+        notificationReceivedEvent => {
+          console.log(
+            'OneSignal: notification will show in foreground:',
+            notificationReceivedEvent,
+          );
+          let notification = notificationReceivedEvent.getNotification();
+          console.log('notification: ', notification);
+          const data = notification.additionalData;
+          console.log('additionalData: ', data);
+          const button1 = {
+            text: 'Cancel',
+            onPress: () => {
+              notificationReceivedEvent.complete();
+            },
+            style: 'cancel',
+          };
+          const button2 = {
+            text: 'Complete',
+            onPress: () => {
+              notificationReceivedEvent.complete(notification);
+            },
+          };
+          Alert.alert('Complete notification?', 'Test', [button1, button2], {
+            cancelable: true,
+          });
+        },
+      );
+
+      OneSignal.setNotificationOpenedHandler(notification => {
+        console.log('OneSignal: notification opened:', notification);
+      });
+      const deviceState = await OneSignal.getDeviceState();
+
+      setIsSubscribed(deviceState.isSubscribed);
+    };
+
+    oneSignalInit();
   });
 
   return (
