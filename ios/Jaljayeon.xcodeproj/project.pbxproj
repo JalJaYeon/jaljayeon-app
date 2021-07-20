@@ -11,13 +11,16 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		57D53C5005D8418BB5499C71 /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA2731F8D484FEC87D9210C /* NanumBarunGothic.ttf */; };
+		58D1DE0DF54340138B4523A5 /* NanumBarunGothicUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09F95E3B28854E4BA12FAC6A /* NanumBarunGothicUltraLight.ttf */; };
+		737D803D71F3C1662ADEB476 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5A06990198BD363F9E5F06 /* libPods-OneSignalNotificationServiceExtension.a */; };
 		75E26ACCC6E5C345577F44F3 /* libPods-Jaljayeon-JaljayeonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7F0493BC4CB32DEA5711FB /* libPods-Jaljayeon-JaljayeonTests.a */; };
 		7EF60E62F59E17573175EFFA /* libPods-Jaljayeon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6492FD61842CC74DA3EFDD70 /* libPods-Jaljayeon.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		57D53C5005D8418BB5499C71 /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AA2731F8D484FEC87D9210C /* NanumBarunGothic.ttf */; };
-		E3C47E011FE5447CAED5C9F1 /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51B270669B504766A5659152 /* NanumBarunGothicBold.ttf */; };
+		BB42633326A38B19006BE70E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB42633226A38B19006BE70E /* NotificationService.swift */; };
+		BB42633726A38B19006BE70E /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB42633026A38B19006BE70E /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D751A4625AF94D85BB9300D7 /* NanumBarunGothicLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65D7B79092E341B3BE91BE1F /* NanumBarunGothicLight.ttf */; };
-		58D1DE0DF54340138B4523A5 /* NanumBarunGothicUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09F95E3B28854E4BA12FAC6A /* NanumBarunGothicUltraLight.ttf */; };
+		E3C47E011FE5447CAED5C9F1 /* NanumBarunGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51B270669B504766A5659152 /* NanumBarunGothicBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,30 +31,59 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Jaljayeon;
 		};
+		BB42633526A38B19006BE70E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB42632F26A38B19006BE70E;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB42633B26A38B19006BE70E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BB42633726A38B19006BE70E /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* JaljayeonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JaljayeonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* JaljayeonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JaljayeonTests.m; sourceTree = "<group>"; };
+		09F95E3B28854E4BA12FAC6A /* NanumBarunGothicUltraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = NanumBarunGothicUltraLight.ttf; path = ../assets/fonts/NanumBarunGothicUltraLight.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Jaljayeon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jaljayeon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Jaljayeon/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Jaljayeon/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Jaljayeon/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Jaljayeon/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Jaljayeon/main.m; sourceTree = "<group>"; };
+		1AA2731F8D484FEC87D9210C /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = NanumBarunGothic.ttf; path = ../assets/fonts/NanumBarunGothic.ttf; sourceTree = "<group>"; };
+		51B270669B504766A5659152 /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = NanumBarunGothicBold.ttf; path = ../assets/fonts/NanumBarunGothicBold.ttf; sourceTree = "<group>"; };
 		6492FD61842CC74DA3EFDD70 /* libPods-Jaljayeon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jaljayeon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65D7B79092E341B3BE91BE1F /* NanumBarunGothicLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = NanumBarunGothicLight.ttf; path = ../assets/fonts/NanumBarunGothicLight.ttf; sourceTree = "<group>"; };
 		6FF97FC0FB3E99434B46B9A4 /* Pods-Jaljayeon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jaljayeon.release.xcconfig"; path = "Target Support Files/Pods-Jaljayeon/Pods-Jaljayeon.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Jaljayeon/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B7F0493BC4CB32DEA5711FB /* libPods-Jaljayeon-JaljayeonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jaljayeon-JaljayeonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90EFCAB6F09CFC51895A0DC5 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		BB42632B26A38ACB006BE70E /* Jaljayeon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Jaljayeon.entitlements; path = Jaljayeon/Jaljayeon.entitlements; sourceTree = "<group>"; };
+		BB42633026A38B19006BE70E /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB42633226A38B19006BE70E /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		BB42633426A38B19006BE70E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB42634226A38BFB006BE70E /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		BD5A06990198BD363F9E5F06 /* libPods-OneSignalNotificationServiceExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OneSignalNotificationServiceExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D35D06579289B13F8C0FBC /* Pods-Jaljayeon-JaljayeonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jaljayeon-JaljayeonTests.release.xcconfig"; path = "Target Support Files/Pods-Jaljayeon-JaljayeonTests/Pods-Jaljayeon-JaljayeonTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3F68D0C2F4C775B8DA95AFD /* Pods-Jaljayeon-JaljayeonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jaljayeon-JaljayeonTests.debug.xcconfig"; path = "Target Support Files/Pods-Jaljayeon-JaljayeonTests/Pods-Jaljayeon-JaljayeonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE517E70FAA999F1AC548877 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		E3088A79343FF923A8DC27B2 /* Pods-Jaljayeon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jaljayeon.debug.xcconfig"; path = "Target Support Files/Pods-Jaljayeon/Pods-Jaljayeon.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		1AA2731F8D484FEC87D9210C /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; name = "NanumBarunGothic.ttf"; path = "../assets/fonts/NanumBarunGothic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		51B270669B504766A5659152 /* NanumBarunGothicBold.ttf */ = {isa = PBXFileReference; name = "NanumBarunGothicBold.ttf"; path = "../assets/fonts/NanumBarunGothicBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		65D7B79092E341B3BE91BE1F /* NanumBarunGothicLight.ttf */ = {isa = PBXFileReference; name = "NanumBarunGothicLight.ttf"; path = "../assets/fonts/NanumBarunGothicLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		09F95E3B28854E4BA12FAC6A /* NanumBarunGothicUltraLight.ttf */ = {isa = PBXFileReference; name = "NanumBarunGothicUltraLight.ttf"; path = "../assets/fonts/NanumBarunGothicUltraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +100,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF60E62F59E17573175EFFA /* libPods-Jaljayeon.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB42632D26A38B19006BE70E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				737D803D71F3C1662ADEB476 /* libPods-OneSignalNotificationServiceExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,9 +131,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		066EBEDC7EDB4756A49A9C9A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1AA2731F8D484FEC87D9210C /* NanumBarunGothic.ttf */,
+				51B270669B504766A5659152 /* NanumBarunGothicBold.ttf */,
+				65D7B79092E341B3BE91BE1F /* NanumBarunGothicLight.ttf */,
+				09F95E3B28854E4BA12FAC6A /* NanumBarunGothicUltraLight.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* Jaljayeon */ = {
 			isa = PBXGroup;
 			children = (
+				BB42632B26A38ACB006BE70E /* Jaljayeon.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -110,6 +162,7 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				6492FD61842CC74DA3EFDD70 /* libPods-Jaljayeon.a */,
 				8B7F0493BC4CB32DEA5711FB /* libPods-Jaljayeon-JaljayeonTests.a */,
+				BD5A06990198BD363F9E5F06 /* libPods-OneSignalNotificationServiceExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,6 +180,7 @@
 				13B07FAE1A68108700A75B9A /* Jaljayeon */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* JaljayeonTests */,
+				BB42633126A38B19006BE70E /* OneSignalNotificationServiceExtension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D308464CE152AA055FDC1CEC /* Pods */,
@@ -142,8 +196,19 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Jaljayeon.app */,
 				00E356EE1AD99517003FC87E /* JaljayeonTests.xctest */,
+				BB42633026A38B19006BE70E /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BB42633126A38B19006BE70E /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				BB42634226A38BFB006BE70E /* OneSignalNotificationServiceExtension.entitlements */,
+				BB42633226A38B19006BE70E /* NotificationService.swift */,
+				BB42633426A38B19006BE70E /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		D308464CE152AA055FDC1CEC /* Pods */ = {
@@ -153,21 +218,11 @@
 				6FF97FC0FB3E99434B46B9A4 /* Pods-Jaljayeon.release.xcconfig */,
 				C3F68D0C2F4C775B8DA95AFD /* Pods-Jaljayeon-JaljayeonTests.debug.xcconfig */,
 				C1D35D06579289B13F8C0FBC /* Pods-Jaljayeon-JaljayeonTests.release.xcconfig */,
+				90EFCAB6F09CFC51895A0DC5 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				CE517E70FAA999F1AC548877 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		066EBEDC7EDB4756A49A9C9A /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				1AA2731F8D484FEC87D9210C /* NanumBarunGothic.ttf */,
-				51B270669B504766A5659152 /* NanumBarunGothicBold.ttf */,
-				65D7B79092E341B3BE91BE1F /* NanumBarunGothicLight.ttf */,
-				09F95E3B28854E4BA12FAC6A /* NanumBarunGothicUltraLight.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -205,15 +260,35 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				5B602F7CE40236EB46765711 /* [CP] Embed Pods Frameworks */,
 				F193CC7AED3226AF17169B9F /* [CP] Copy Pods Resources */,
+				BB42633B26A38B19006BE70E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BB42633626A38B19006BE70E /* PBXTargetDependency */,
 			);
 			name = Jaljayeon;
 			productName = Jaljayeon;
 			productReference = 13B07F961A680F5B00A75B9A /* Jaljayeon.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BB42632F26A38B19006BE70E /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB42633826A38B19006BE70E /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				D098980AA2183BB47B971FD4 /* [CP] Check Pods Manifest.lock */,
+				BB42632C26A38B19006BE70E /* Sources */,
+				BB42632D26A38B19006BE70E /* Frameworks */,
+				BB42632E26A38B19006BE70E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = BB42633026A38B19006BE70E /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -221,6 +296,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -229,6 +305,9 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					BB42632F26A38B19006BE70E = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -247,6 +326,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Jaljayeon */,
 				00E356ED1AD99517003FC87E /* JaljayeonTests */,
+				BB42632F26A38B19006BE70E /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +349,13 @@
 				E3C47E011FE5447CAED5C9F1 /* NanumBarunGothicBold.ttf in Resources */,
 				D751A4625AF94D85BB9300D7 /* NanumBarunGothicLight.ttf in Resources */,
 				58D1DE0DF54340138B4523A5 /* NanumBarunGothicUltraLight.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB42632E26A38B19006BE70E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +471,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D098980AA2183BB47B971FD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F193CC7AED3226AF17169B9F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,6 +549,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BB42632C26A38B19006BE70E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB42633326A38B19006BE70E /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -447,6 +564,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* Jaljayeon */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		BB42633626A38B19006BE70E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB42632F26A38B19006BE70E /* OneSignalNotificationServiceExtension */;
+			targetProxy = BB42633526A38B19006BE70E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -506,8 +628,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3088A79343FF923A8DC27B2 /* Pods-Jaljayeon.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Jaljayeon/Jaljayeon.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8WNR3BTVZT;
 				ENABLE_BITCODE = NO;
@@ -522,7 +646,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.gtg7784.jaljayeon;
 				PRODUCT_NAME = Jaljayeon;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -534,8 +658,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6FF97FC0FB3E99434B46B9A4 /* Pods-Jaljayeon.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Jaljayeon/Jaljayeon.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8WNR3BTVZT;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -549,7 +675,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = co.gtg7784.jaljayeon;
 				PRODUCT_NAME = Jaljayeon;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -680,6 +806,74 @@
 			};
 			name = Release;
 		};
+		BB42633926A38B19006BE70E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90EFCAB6F09CFC51895A0DC5 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8WNR3BTVZT;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = co.gtg7784.jaljayeon.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB42633A26A38B19006BE70E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE517E70FAA999F1AC548877 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8WNR3BTVZT;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = co.gtg7784.jaljayeon.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -706,6 +900,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB42633826A38B19006BE70E /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB42633926A38B19006BE70E /* Debug */,
+				BB42633A26A38B19006BE70E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
